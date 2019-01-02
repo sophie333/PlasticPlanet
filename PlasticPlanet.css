@@ -18,6 +18,23 @@ body {
     overflow: scroll;
 }
 
+.container {
+    display: block;
+    height: 40vh;
+    width: 40vh;
+    position: relative;
+    margin: auto;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    max-width: 100%;
+}
 
 .nav-left_parent, .nav-right_parent {
     height: 100%;
@@ -72,4 +89,20 @@ a.button:hover{
 #heading {
     font-size: 50px;
     line-height: 1.2em;
+}
+.info {
+    display: block;
+    height: 3vh;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#info{
+    width: 100px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50px);
 }

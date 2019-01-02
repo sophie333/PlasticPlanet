@@ -7,7 +7,6 @@ window.onload = function() {
         objArray.navLeft();
         document.getElementById("heading").innerHTML = objArray.content.title;
         document.getElementById("content").innerHTML = objArray.content.text;
-
     });
 
     $('#nav-right').click(function() {
