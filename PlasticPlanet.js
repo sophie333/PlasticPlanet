@@ -1,22 +1,38 @@
 window.onload = function() {
+    //Initialise a new XMLHttpRequest object
+    var ajaxObj = new XMLHttpRequest();
+
+    //Define the event handler for the object
+    ajaxObj.onreadystatechange = function () {
+        if ( this.readyState == 4 && this.status == 200) {
+            var elem = document.getElementsByClassName("content-div");
+            elem.innerHTML = this.responseText;
+        }
+    };
+
     var objArray = new ContentArray();
-    document.getElementById("heading").innerHTML = objArray.content.title;
-    document.getElementById("content").innerHTML = objArray.content.text;
-    loadEarthModel('models/world3.glb');
+    //document.getElementById("heading").innerHTML = objArray.content.title;
+    //document.getElementById("content").innerHTML = objArray.content.text;
+    //loadEarthModel('models/world3.glb');
 
     $('#nav-left').click(function() {
         objArray.navLeft();
-        document.getElementById("heading").innerHTML = objArray.content.title;
-        document.getElementById("content").innerHTML = objArray.content.text;
-        loadEarthModel(objArray.model);
+        let url = "http://localhost:9000/" + objArray.current;
+        console.log(url);
+        $.get(url, function(data) {
+            $('.content-div').html(data);
+        });
+        //document.getElementById("heading").innerHTML = objArray.content.title;
+        //document.getElementById("content").innerHTML = objArray.content.text;
+        //loadEarthModel(objArray.model);
     });
-
+/*
     $('#nav-right').click(function() {
         objArray.navRight();
         document.getElementById("heading").innerHTML = objArray.content.title;
         document.getElementById("content").innerHTML = objArray.content.text;
         loadEarthModel(objArray.model);
-    });
+    });*/
 }
 
 function loadEarthModel(modelString) {
