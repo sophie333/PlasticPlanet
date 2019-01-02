@@ -1,6 +1,5 @@
 var contentArr;
 var modelArr;
-var current = 0;
 var length = 3;
 
 function ContentArray() {
@@ -17,6 +16,8 @@ function ContentArray() {
         "                et accusam et justo duo dolores et ea rebum. Stet clita kasd\n" +
         "                gubergren, no sea takimata sanctus est Lorem ipsum dolor sit\n" +
         "                amet.");
+
+    this.current = 0;
     this.model = 'models/world3.glb';
     this.navRight = navRight;
     this.navLeft = navLeft;
@@ -49,28 +50,28 @@ function init() {
     modelArr.push(string2);
     modelArr.push(string3);
 
-    this.content = contentArr[current];
-    this.model = modelArr[current];
+    this.content = contentArr[this.current];
+    this.model = modelArr[this.current];
 }
 
 function navRight() {
-    if ((current + 1) == length) {
-        current = 0;
+    if ((this.current + 1) == length) {
+        this.current = 0;
     }
     else {
-        current = current + 1;
+        this.current = this.current + 1;
     }
-    this.content = contentArr[current];
-    this.model = modelArr[current];
+    this.content = contentArr[this.current];
+    this.model = modelArr[this.current];
 }
 
 function navLeft() {
-    if ((current - 1) < 0) {
-        current = length - 1;
+    if ((this.current - 1) < 0) {
+        this.current = length - 1;
     }
     else {
-        current = current - 1;
+        this.current = this.current - 1;
     }
-    this.content = contentArr[current];
-    this.model = modelArr[current];
+    this.content = contentArr[this.current];
+    this.model = modelArr[this.current];
 }
