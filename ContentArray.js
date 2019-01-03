@@ -1,3 +1,4 @@
+var ContentArray = require ('./Content.js');
 var contentArr;
 var modelArr;
 var length = 3;
@@ -19,8 +20,6 @@ function ContentArray() {
 
     this.current = 0;
     this.model = 'models/world3.glb';
-    this.navRight = navRight;
-    this.navLeft = navLeft;
     init();
 }
 
@@ -54,7 +53,8 @@ function init() {
     this.model = modelArr[this.current];
 }
 
-function navRight() {
+
+ContentArray.prototype.navRight = function() {
     if ((this.current + 1) == length) {
         this.current = 0;
     }
@@ -63,9 +63,9 @@ function navRight() {
     }
     this.content = contentArr[this.current];
     this.model = modelArr[this.current];
-}
+};
 
-function navLeft() {
+ContentArray.prototype.navLeft = function() {
     if ((this.current - 1) < 0) {
         this.current = length - 1;
     }
@@ -74,4 +74,13 @@ function navLeft() {
     }
     this.content = contentArr[this.current];
     this.model = modelArr[this.current];
-}
+};
+
+ContentArray.prototype.getContent = function (index) {
+    console.log(index);
+    if (contentArr != undefined) {
+        return contentArr[index];
+    }
+};
+
+module.exports = ContentArray;
