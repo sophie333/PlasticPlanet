@@ -14,13 +14,35 @@ window.onload = function() {
     //document.getElementById("heading").innerHTML = objArray.content.title;
     //document.getElementById("content").innerHTML = objArray.content.text;
     //loadEarthModel('models/world3.glb');
-
+/*
     $('#nav-left').click(function() {
         objArray.navLeft();
+        console.log(JSON.stringify({title: objArray.content.title, cont: objArray.content.text}));
         let url = "http://localhost:9000/" + objArray.current;
         console.log(url);
         $.get(url, function(data) {
             $('.content-div').html(data);
+        });
+        ajaxObj.send(JSON.stringify({title: objArray.content.title, cont: objArray.content.text}));
+        //document.getElementById("heading").innerHTML = objArray.content.title;
+        //document.getElementById("content").innerHTML = objArray.content.text;
+        //loadEarthModel(objArray.model);
+    });*/
+    $('#nav-left').click(function() {
+        objArray.navLeft();
+        let url1 = "http://localhost:9000/" + objArray.current;
+/*
+        var data = {title: objArray.content.title, cont: objArray.content.text};
+        data.title = "title";
+        data.message = "hi";
+*/
+        $.ajax({
+            type: 'GET',
+            data: {'title': objArray.content.title, 'cont': objArray.content.text},//(JSON.stringify({title: objArray.content.title, cont: objArray.content.text})),//data: $('.content-div').html, //JSON.stringify()
+            url: url1,
+            success: function(result) {
+                $('.content-div').html(result);
+            }
         });
         //document.getElementById("heading").innerHTML = objArray.content.title;
         //document.getElementById("content").innerHTML = objArray.content.text;

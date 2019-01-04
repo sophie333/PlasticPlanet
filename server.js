@@ -8,12 +8,17 @@ var server = http.createServer ( function (request , response) {
 	response.writeHead(200, {"Access-Control-Allow-Origin": "*"});
 	//response.write("<p>URL requested: " + request.url);
 
-	var contentArray = new ContentArray();
-	console.log(contentArray);
+	//var contentArray = new ContentArray();
+	//console.log(contentArray);
+
+	console.log('a: '+request.method);
+	console.log('b: '+request.headers);
+	console.log('c: '+request.url);
 
 	var urlParts = url.parse(request.url, true);
+
 	if (urlParts.path == "/0") {
-		let h = contentArray.getContent(0).title;
+		//let h = contentArray.getContent(0).title;
 		//var p = objArray.getContent(0).content;
 
 		response.write('<h1>#1 Dangers of Plastic</h1>');

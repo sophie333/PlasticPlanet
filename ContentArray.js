@@ -1,6 +1,6 @@
-var ContentArray = require ('./Content.js');
-var contentArr;
+//var Content = require ('./Content.js');
 var modelArr;
+var contentArr;
 var length = 3;
 
 function ContentArray() {
@@ -75,12 +75,12 @@ ContentArray.prototype.navLeft = function() {
     this.content = contentArr[this.current];
     this.model = modelArr[this.current];
 };
-
+/*
 ContentArray.prototype.getContent = function (index) {
     console.log(index);
-    if (contentArr != undefined) {
-        return contentArr[index];
+    if (this.contentArr != undefined) {
+        return this.contentArr[index];
     }
-};
+};*/
 
-module.exports = ContentArray;
+//module.exports = ContentArray;
