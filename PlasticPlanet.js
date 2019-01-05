@@ -53,6 +53,14 @@ window.onload = function() {
         });
         loadEarthModel(objArray.model);
     });
+
+    $('#openBtn').click(function() {
+        $('.infoBox').css("display", "block");
+    });*
+
+    $('.closeBtn').click(function() {
+        $('.infoBox').css("display", "none");
+    });
 }
 
 function loadEarthModel(modelString) {
