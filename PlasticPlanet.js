@@ -58,15 +58,11 @@ window.onload = function() {
 function loadEarthModel(modelString) {
     //RENDERER
     var renderer = new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias: true, alpha: true});
-
-    var container = document.getElementById('myCanvas');
     var w = 300;
     var h = 300;
     renderer.setSize(w , h);
-
     renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
-    //renderer.setSize(window.innerWidth, window.innerHeight);
 
     //CAMERA
     var camera = new THREE.PerspectiveCamera(35, w / h, 0.1, 3000);
@@ -76,13 +72,12 @@ function loadEarthModel(modelString) {
 
     //LIGHTS
     var light = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(light);
-
     var light1 = new THREE.PointLight(0xffffff, 1, 18);
     light1.position.set(-3, 6, -3);
     light1.castShadow = true;
     light1.shadow.camera.near = 0.1;
     light1.shadow.camera.far = 25;
+    scene.add(light);
     scene.add(light1);
 
     //OBJECT
@@ -138,14 +133,13 @@ function loadEarthModel(modelString) {
         );
     }
 
+    //TRANSLATION
     function initObj(model) {
-        // Translate
         model.scene.position.set(0, -0.4, -5.5);
         worldModel = model;
     }
 
     function initObj2(model) {
-        // Translate
         model.scene.position.set(0, -0.4, -5.5);
         cloudModel = model;
     }
@@ -154,6 +148,7 @@ function loadEarthModel(modelString) {
     requestAnimationFrame(render);
 
     function render() {
+        // Rotate models
         if (worldModel) {
             worldModel.scene.rotation.y += 0.003;
         }
