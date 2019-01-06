@@ -1,6 +1,5 @@
-function Content(title, content) {
+function Content(title, text, model) {
     this.title = title;
-    this.text = content;
+    this.text = text;
+    this.model = model;
 }
-
-//module.exports = Content;

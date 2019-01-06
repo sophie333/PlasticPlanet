@@ -1,4 +1,10 @@
 window.onload = function() {
+    ajaxSetup();
+    navigation();
+    toggleInfo();
+}
+
+function ajaxSetup() {
     //Initialise a new XMLHttpRequest object
     var ajaxObj = new XMLHttpRequest();
 
@@ -9,9 +15,24 @@ window.onload = function() {
             elem.innerHTML = this.responseText;
         }
     };
+}
 
+function navigation() {
     var objArray = new ContentArray();
+    sendRequest(objArray);
 
+    $('#nav-left').click(function() {
+        objArray.navLeft();
+        sendRequest(objArray);
+    });
+
+    $('#nav-right').click(function() {
+        objArray.navRight();
+        sendRequest(objArray);
+    });
+}
+
+function sendRequest(objArray) {
     let url1 = "http://localhost:9000/" + objArray.current;
 
     $.ajax({
@@ -22,41 +43,13 @@ window.onload = function() {
             $('.content-div').html(result);
         }
     });
-    loadEarthModel(objArray.model);
+    loadEarthModel(objArray.content.model);
+}
 
-    $('#nav-left').click(function() {
-        objArray.navLeft();
-        let url1 = "http://localhost:9000/" + objArray.current;
-
-        $.ajax({
-            type: 'GET',
-            data: {'title': objArray.content.title, 'cont': objArray.content.text},
-            url: url1,
-            success: function(result) {
-                $('.content-div').html(result);
-            }
-        });
-        loadEarthModel(objArray.model);
-    });
-
-    $('#nav-right').click(function() {
-        objArray.navRight();
-        let url1 = "http://localhost:9000/" + objArray.current;
-
-        $.ajax({
-            type: 'GET',
-            data: {'title': objArray.content.title, 'cont': objArray.content.text},
-            url: url1,
-            success: function(result) {
-                $('.content-div').html(result);
-            }
-        });
-        loadEarthModel(objArray.model);
-    });
-
+function toggleInfo() {
     $('#openBtn').click(function() {
         $('.infoBox').css("display", "block");
-    });*
+    });
 
     $('.closeBtn').click(function() {
         $('.infoBox').css("display", "none");
