@@ -4,14 +4,14 @@ function ContentArray() {
     contentArr = new Array(0);
     this.current = 0;
     this.length = 3;
-    this.content = new Content("#1 Danger", "Lorem ipsum dolor", "models/world3.glb");
+    this.content = new Content("#1 Danger", "Lorem ipsum dolor", "models/test05.glb");
     init();
 }
 
 function init() {
-    let object1 = new Content("#1 Danger", "Lorem ipsum dolor", "models/world3.glb");
-    let object2 = new Content("#2 Danger", "Plastic in Fish", "models/world2.glb");
-    let object3 = new Content("#3 Danger", "Plastic in You", "models/world.glb");
+    let object1 = new Content("#1 Danger", "Lorem ipsum dolor", "models/test05.glb");
+    let object2 = new Content("#2 Danger", "Plastic in Fish", "models/test02.glb");
+    let object3 = new Content("#3 Danger", "Plastic in You", "models/test04.glb");
 
     contentArr.push(object1);
     contentArr.push(object2);
