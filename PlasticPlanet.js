@@ -34,6 +34,12 @@ function navigation() {
 
 function sendRequest(objArray) {
     let url1 = "http://localhost:9000/" + objArray.current;
+    document.getElementById("infoBoxText").innerHTML = "If you want to find out more about this topic, you will be transferred to the source site by clicking ";
+    var a = document.createElement('a');
+    var linkText = document.createTextNode("here.");
+    a.appendChild(linkText);
+    a.href = objArray.content.link;
+    document.getElementById("infoBoxText").appendChild(a);
 
     $.ajax({
         type: 'GET',
