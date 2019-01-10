@@ -5,7 +5,7 @@ function ContentArray() {
     this.current = 0;
     this.length = 5;
     this.content = new Content(
-        "#1 Plastic in the oceans",
+        "#1 Plastic in our oceans",
         "In 2015, Jenna Jambeck, a University of Georgia designing teacher, caught everybody's attention with a rough estimate on how much unrecycled plastic waste ends up in the ocean: between 5.3 million and 14 million tons every year just from beach front districts.\n" +
         "Most of it isn't thrown off boats, she and her associates state, yet is dumped indiscreetly ashore or in waterways, for the most part in Asia. It's at that point blown or washed into the ocean. Envision five plastic basic need packs loaded down with plastic junk, Jambeck says, sitting on each foot of coastline around the globe—that would relate to about 8.8 million tons, her widely appealing assessment of what the sea gets from us every year. It's indistinct to what extent it will take for that plastic to totally biodegrade into its constituent particles. Estimates extend from 450 years to never.\n",
         "models/world_02.glb",
@@ -16,7 +16,7 @@ function ContentArray() {
 
 function init() {
     let object1 = new Content(
-        "#1 Plastic in the oceans",
+        "#1 Plastic in our oceans",
         "In 2015, Jenna Jambeck, a University of Georgia designing teacher, caught everybody's attention with a rough estimate on how much unrecycled plastic waste ends up in the ocean: between 5.3 million and 14 million tons every year just from beach front districts.\n" +
         "Most of it isn't thrown off boats, she and her associates state, yet is dumped indiscreetly ashore or in waterways, for the most part in Asia. It's at that point blown or washed into the ocean. Envision five plastic basic need packs loaded down with plastic junk, Jambeck says, sitting on each foot of coastline around the globe—that would relate to about 8.8 million tons, her widely appealing assessment of what the sea gets from us every year. It's indistinct to what extent it will take for that plastic to totally biodegrade into its constituent particles. Estimates extend from 450 years to never.\n",
         "models/world_02.glb",
